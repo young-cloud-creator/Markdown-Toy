@@ -11,9 +11,18 @@
 #include <QHBoxLayout>
 #include <QTextStream>
 #include <QWebEngineView>
+#include <QDialog>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLineEdit>
+#include <QLabel>
+#include <QPushButton>
+#include <QListWidget>
+#include <vector>
 #include "markdown.h"
 #include "latex.h"
 #include "word.h"
+using std::vector;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -35,6 +44,11 @@ public:
     void preview_tex();
     void preview_docx();
 
+    void search_file();
+    void set_search_result();
+    void draw_search_result();
+    void open_file_list(QListWidgetItem * item);
+
 private:
     Ui::MainWindow *ui;
     QMenu *file_menu;
@@ -45,5 +59,14 @@ private:
     QFileInfo *file_info;
     QTextEdit *edit_text;
     QWebEngineView *view_text;
+
+    QAction *search;
+    QString root;
+    QLineEdit *search_content;
+    QLabel *root_line_tip;
+    QListWidget *search_result;
+    QDialog *search_dialog;
+
+    vector<QString> files;
 };
 #endif // MAINWINDOW_H
