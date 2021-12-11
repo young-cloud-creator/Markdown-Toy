@@ -152,11 +152,16 @@ void MainWindow::draw_search_result()
         for(auto item=files.begin(); item!=files.end(); item++)
         {
             QString file_name = (*item);
+            QString match_name = (*item);
+            qsizetype name_idx = match_name.lastIndexOf('/')+1;
+            if(name_idx)
+                match_name = match_name.mid(name_idx);
+
             if(file_name.mid(file_name.length()-3)==".md" ||
                     file_name.mid(file_name.length()-4)==".tex" ||
                         file_name.mid(file_name.length()-5)==".docx")
             {
-                if(std::regex_match(file_name.toStdString(), name_reg) ||
+                if(std::regex_match(match_name.toStdString(), name_reg) ||
                         file_name.contains(search_content->text()))
                     search_result->addItem(file_name);
             }
