@@ -21,7 +21,7 @@ All in all, it just a toy : )
 
 ---
 
-Here is some screenshots of the application:
+Here are some screenshots of the application:
 
 <table><tr>
   <td><img src="https://user-images.githubusercontent.com/84324349/209457629-517977ff-36e6-4d6e-baeb-90e21064b545.png" width="500px"></td>
